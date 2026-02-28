@@ -405,10 +405,16 @@ a.image {
 
 .listas {
   column-count: 3;
-  column-gap: 180px;
+  column-gap: 40px;
+  width: 100%;
 }
 
-.listas li,
+.listas li {
+  margin-bottom: 10px;
+  /* Evita que un elemento de la lista se corte entre dos columnas */
+  break-inside: avoid-column; 
+}
+
 .lista2,
 .lista3 {
   margin-bottom: 10px;
@@ -1472,4 +1478,30 @@ button:disabled,
 
 #menu>ul>li>ul>li {
   margin: 0.125em 0 0 0;
+}
+
+/* Ajuste para que las imágenes del banner sean flexibles en móviles */
+@media screen and (max-width: 736px) {
+    #banner .image .fundacion {
+        height: auto;      /* Permite que la altura se ajuste sola */
+        max-height: 300px; /* Evita que ocupe toda la pantalla */
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Tablet (Pantallas medianas) */
+@media screen and (max-width: 980px) {
+  .listas {
+    column-count: 2;
+    column-gap: 30px;
+  }
+}
+
+/* Celular (Pantallas pequeñas) */
+@media screen and (max-width: 480px) {
+  .listas {
+    column-count: 2; /* Dos Columnas para que sea legible */
+    column-gap: 0;
+  }
 }
